@@ -4,31 +4,33 @@ import React,{ useState } from "react";
 
  function EditUserForm(props) {
 
-    const [name,setName]= useState(props.userInfo.name);
+    const [username,setUsername]= useState(props.userInfo.username);
     const [email,setEmail]= useState(props.userInfo.email);
-    const [gen,setGen]= useState(props.userInfo.gen);
+    const [mobile,setMobile]= useState(props.userInfo.mobile);
+    const [password,setPassword]= useState(props.userInfo.password);
 
 
    
 
     const handleSubmit =(e)=>{
       e.preventDefault();
-      props.updateUser(props.userInfo.id,{name,email,gen});
-      setName("");
+      props.updateUser(props.userInfo.id,{username,email,mobile,password});
+      setUsername("");
       setEmail("");
-      setGen("");
+      setMobile("");
+      setPassword("");
       props.hide();
   };
         
   return (
     <Form>  
       <Form.Group className="mb-3" controlId="formBasicEmail">
-        <Form.Label>Name</Form.Label>
-        <Form.Control type="name"
-         placeholder="Enter your name"
-         value={name} 
+        <Form.Label>Username</Form.Label>
+        <Form.Control type="username"
+         placeholder="Enter your username"
+         value={username} 
          onChange={(e) => {
-            setName(e.target.value);
+            setUsername(e.target.value);
          }}
          />
       </Form.Group>
@@ -43,12 +45,23 @@ import React,{ useState } from "react";
          />
       </Form.Group>
       <Form.Group className="mb-3" controlId="formBasicEmail">
-        <Form.Label>Gen</Form.Label>
-        <Form.Control type="gen"
+        <Form.Label>Mobile Number</Form.Label>
+        <Form.Control type="mobile"
          placeholder="Enter your gen"
-         value={gen} 
+         value={mobile} 
          onChange={(e) => {
-            setGen(e.target.value)
+            setMobile(e.target.value)
+         }}
+         />
+      </Form.Group>
+      
+      <Form.Group className="mb-3" controlId="formBasicEmail">
+        <Form.Label>Password</Form.Label>
+        <Form.Control type="password"
+         placeholder="Enter your password"
+         value={password} 
+         onChange={(e) => {
+            setPassword(e.target.value)
          }}
          />
       </Form.Group>

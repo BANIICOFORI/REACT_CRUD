@@ -9,28 +9,31 @@ import AddUsersForm from "./Components/AddUsersForm";
 function App() {
   const [users, setUsers] = useState([
     {
-      name: "Nicholas Ofori Boadi",
+      username: "Nicholas Ofori Boadi",
       email: "baniicofori@gmail.com",
-      gen: "22",
+      mobile: "0243889977",
+      password:"baniico@1",
       id: "udiue9893e03-kked",
     },
     {
-      name: "Herbert Ofori Boadi",
+      username: "Herbert Ofori Boadi",
       email: "herberto@gmail.com",
-      gen: "2",
+      mobile: "0244009988",
+      password:"baniico@1",
       id: "edjjdjdjdjdkskw",
     },
     {
-      name: "Humphrey Dwamena Boadi",
+      username: "Humphrey Dwamena Boadi",
       email: "humphrey@gmail.com",
-      gen: "40",
+      mobile: "0244404040",
+      password:"baniico@1",
       id: "uuueiriedm003wwsw",
     },
   ]);
 
   const AddNewUser = (user) => {
     user.id = Math.random().toString(36);
-    setUsers([...users, { name: user.name, email: user.email, gen: user.gen }]);
+    setUsers([...users, { username: user.username, email: user.email, mobile: user.mobile,password:user.password }]);
     console.log(user);
   };
    
@@ -50,7 +53,7 @@ function App() {
   };
   return (
     <>
-      <Container>
+      <Container fluid>
         <Row>
           <Col md={3}>
             <AddUsersForm newUser={AddNewUser} />

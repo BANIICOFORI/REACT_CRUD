@@ -1,37 +1,41 @@
 import React,{ useState } from "react";
+import { Row } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
 import Form from"react-bootstrap/Form";
 
 
  function AddUsersForm(props) {
-    const [name,setName]= useState(" ");
+    const [username,setUsername]= useState(" ");
     const [email,setEmail]= useState(" ");
-    const [gen,setGen]= useState(" ");
+    const [mobile,setMobile]= useState(" ");
+    const [password,setPassword]= useState(" ");
 
 
    
 
     const handleSubmit =(e)=>{
       e.preventDefault();
-      props.newUser({name,email,gen});
-      setName("");
+      props.newUser({username,email,mobile,password});
+      setUsername("");
       setEmail("");
-      setGen("");
+      setMobile("");
+      setPassword("");
   };
         
   return (
     <Form>
-      
-      <Form.Group className="mb-3" controlId="formBasicEmail">
-        <Form.Label>Name</Form.Label>
-        <Form.Control type="name"
-         placeholder="Enter your name"
-         value={name} 
+      <Row>
+      <Form.Group className="" controlId="formBasicEmail">
+        <Form.Label>Username</Form.Label>
+        <Form.Control type="username"
+         placeholder="Enter your username"
+         value={username} 
          onChange={(e) => {
-            setName(e.target.value)
+            setUsername(e.target.value)
          }}
          />
       </Form.Group>
+
       <Form.Group className="mb-3" controlId="formBasicEmail">
         <Form.Label>Email</Form.Label>
         <Form.Control type="email"
@@ -42,17 +46,31 @@ import Form from"react-bootstrap/Form";
          }}
          />
       </Form.Group>
+      </Row>
+      <Row>
       <Form.Group className="mb-3" controlId="formBasicEmail">
-        <Form.Label>Gen</Form.Label>
-        <Form.Control type="gen"
-         placeholder="Enter your gen"
-         value={gen} 
+        <Form.Label>Mobile</Form.Label>
+        <Form.Control type="mobile"
+         placeholder="Enter your mobile number"
+         value={mobile} 
          onChange={(e) => {
-            setGen(e.target.value)
+            setMobile(e.target.value)
          }}
          />
       </Form.Group>
-       
+
+      <Form.Group className="mb-3" controlId="formBasicEmail">
+        <Form.Label>Password</Form.Label>
+        <Form.Control type="password"
+         placeholder="Enter your password"
+         value={password} 
+         onChange={(e) => {
+            setPassword(e.target.value)
+         }}
+         />
+      </Form.Group>
+
+      </Row>
       <Button onClick={handleSubmit} variant="primary" type="submit">Submit</Button>
     </Form>
 
